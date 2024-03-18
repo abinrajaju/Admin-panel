@@ -1,0 +1,170 @@
+
+    
+
+ <%- include('include/header') -%>
+<!-- 
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+               
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+               
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register"  >Sign Up</button>
+                    <button class="hidden" ><a href="/admin" class="text-white">Admin</a></button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script >
+        const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
+
+    </script> -->
+
+
+    <!-- Create -->
+    <div class="container" id="container">
+        <div class="form-container sign-up ">
+            <form method="post" action="/api/users">
+                <h1>Create Account</h1>
+               
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name" name="name" id="name">
+                <input type="email" placeholder="Email" name="email" id="email">
+                <input type="password" placeholder="Password" name="password" id="password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+
+        <!-- admin -->
+        <div class="form-container admin">
+            <form method="post" action="/api/users/login">
+                <h1>Admin</h1>
+               
+                <span>or use your email for registeration</span>
+            
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <button>Sign In</button>
+            </form>
+        </div>
+
+        <!-- sign in -->
+        <div class="form-container sign-in">
+            <form action="/api/users/login" method="post">
+                <h1>Sign In</h1>
+               
+                <span>use your email password</span>
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-rightn">
+                    <h1>Hello, Sir!</h1>
+                    <p>Register with your personal details to control the site</p>
+                    <button class="hidden text-white" id="lo">Back</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register"  >Sign Up</button>
+                    <button class="hidden text-white" id="ad"> Admin </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const adbtn = document.getElementById('ad');
+const loginBtn = document.getElementById('login');
+const loBtn = document.getElementById('lo');
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+    
+});
+adbtn.addEventListener('click', () => {
+    container.classList.add("active1");
+});
+loBtn.addEventListener('click', () => {
+    container.classList.remove("active1");
+    
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var signupButton = document.getElementById('signup-button');
+    signupButton.addEventListener('click', function () {
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value.trim();
+
+        
+        if (!name || !email || !password) {
+            var errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'block'; // Show error message
+        } else {
+            
+            document.getElementById('signup-form').submit();
+        }
+    });
+});
+
+
+
+    
+    </script>
+    
+    <%- include('include/footer') -%>

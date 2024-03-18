@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>USER HOME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <style>
+body {
+  background: #3bb8f2 !important;
+  font-family: 'Muli', sans-serif;
+  text-align: center; /* Center horizontally */
+  display: flex;
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Ensure the body takes up the full viewport height */
+}
+
+h1 {
+  color: #fff;
+  padding-bottom: 0rem;
+  font-weight: bold;
+}
+
+a {
+  color: #333;
+}
+
+a:hover {
+  color: #c3dfec;
+  text-decoration: none;
+}
+
+.form-control:focus {
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #c3dfec;
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-logout {
+  background: #3bb8f2;
+  border: #c3dfec;
+  font-size: 17px; /* Increase the button's text size */
+  width: 10%; /* Set the button's width to 10% */
+  margin: 10px; /* Add 10px margin */
+  color: white; /* Set the text color to white */
+}
+
+.btn-logout:hover {
+  background: #90cbe7;
+  border: #c3dfec;
+}
+
+.user-text {
+  font-size: 30px; /* Set the font size to 20px */
+  font-weight: bold; /* Make the text bold */
+}
+    </style>
+</head>
+
+
+<body class="">
+    <div class="container-fluid">
+        <div class="admin_main align-middle">
+            <h1 class="text-center">Home</h1>
+            <div class="card card-body">
+                <form action="/logout" class="pt-3">
+                    <div class="user-text">Welcome to the Home Page</div>
+                    <div class="user-text">
+                        <%= locals.username ? username : "User" %>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-logout" onclick="logout()" type="submit">Log Out</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function logout() {
+            const result = confirm('Are You Sure You Want to Logout?');
+            if (result == false) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+
+</html>
