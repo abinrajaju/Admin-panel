@@ -6,6 +6,7 @@ const service = require('../service/render')
 const controller = require('../controller/controller')
 const {off,getMaxListeners}=require('../model/model')
 const {adminCheck}=require('../../util/middleware')
+const controller = require('../controller/new')
 
 
 
@@ -64,6 +65,13 @@ else{
 })
 
 // //API
+
+
+
+
+
+
+
 route.post('/api/users/login', controller.login)
 route.route('/api/users')
   .post(controller.create)
